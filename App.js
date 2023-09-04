@@ -8,6 +8,11 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import DetallesSalida from "./DetallesSalida";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   // Supongamos que estas son tus noticias obtenidas de una API externa (CMS)
@@ -28,34 +33,54 @@ export default function App() {
   ];
 
   return (
-    <View style={styles.container}>
-      {/* Encabezado de Noticias */}
-      <Text style={styles.newsHeader}>Últimas Noticias</Text>
-
-      {/* Carrusel de Noticias */}
-      <ScrollView horizontal={true} style={styles.newsCarousel}>
-        {noticias.map((noticia) => (
-          <View key={noticia.id} style={styles.newsCard}>
-            <Image source={{ uri: noticia.imagen }} style={styles.newsImage} />
-            <Text style={styles.newsTitle}>{noticia.titulo}</Text>
-            <Text style={styles.newsContent}>{noticia.contenido}</Text>
-          </View>
-        ))}
-      </ScrollView>
-
-      {/* Botones de Login y SignUp */}
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>SignUp</Text>
-        </TouchableOpacity>
-      </View>
-
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Inicio">
+        <Stack.Screen name="Inicio" component={InicioScreen} />
+        <Stack.Screen name="DetallesSalida" component={DetallesSalida} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
+
+  function InicioScreen({ navigation }) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.newsHeader}>Últimas Salidas</Text>
+        <ScrollView horizontal={true} style={styles.newsCarousel}>
+          {noticias.map((salida) => (
+            <TouchableOpacity
+              key={salida.id}
+              onPress={() =>
+                navigation.navigate("DetallesSalida", {
+                  titulo: salida.titulo,
+                  imagen: salida.imagen,
+                  descripcion: salida.descripcion,
+                })
+              }
+            >
+              <View style={styles.newsCard}>
+                <Image
+                  source={{ uri: salida.imagen }}
+                  style={styles.newsImage}
+                />
+                <Text style={styles.newsTitle}>{salida.titulo}</Text>
+                <Text style={styles.newsContent}>{salida.descripcion}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+        {/* Botones de Login y SignUp */}
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>SignUp</Text>
+          </TouchableOpacity>
+        </View>
+        <StatusBar style="auto" />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -85,7 +110,7 @@ const styles = StyleSheet.create({
   },
   newsImage: {
     width: "100%",
-    height: 100,
+    height: 150,
     borderRadius: 5,
   },
   newsTitle: {
