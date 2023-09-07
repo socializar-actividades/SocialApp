@@ -1,9 +1,11 @@
 import React from "react";
 import { View, Text, Button, ScrollView } from "react-native";
-import Carousel from "react-native-snap-carousel"; // Asegúrate de instalar esta dependencia
+import Carousel from "react-native-snap-carousel";
+
+//Idea aproximada del diseño del homepage
 
 const HomeScreen = ({ navigation }) => {
-  // Datos salida
+  // Datos de salida
   const carouselData = [
     {
       title: "Salida 1",
@@ -19,7 +21,7 @@ const HomeScreen = ({ navigation }) => {
       date: "2023-09-15",
       location: "Ubicación 2",
     },
-    // Agrega más datos de tarjetas aquí
+    // etc
   ];
 
   // Renderiza cada tarjeta en el carrusel
@@ -57,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <ScrollView style={{ flex: 1 }}>
       <Text style={{ textAlign: "center", fontSize: 20, marginVertical: 20 }}>
-        Bienvenido a la App
+        Bienvenido a Socializar!
       </Text>
       <Carousel
         data={carouselData}

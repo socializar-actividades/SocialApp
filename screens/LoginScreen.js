@@ -7,13 +7,10 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = () => {
     // Lógica de inicio de sesión con Firebase
-
-    // Ejemplo:
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Inicio de sesión exitoso, navegar a la pantalla de inicio, por ejemplo:
         navigation.navigate("Home");
       })
       .catch((error) => {
@@ -38,7 +35,7 @@ const LoginScreen = ({ navigation }) => {
       <Button title="Iniciar Sesión" onPress={handleLogin} />
       <Button
         title="Registrarse"
-        onPress={() => navigation.navigate("Register")} // Navegar a la pantalla de registro
+        onPress={() => navigation.navigate("Register")}
       />
     </View>
   );

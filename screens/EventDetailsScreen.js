@@ -6,15 +6,13 @@ const EventDetailsScreen = ({ route, navigation }) => {
   const [attendees, setAttendees] = useState([]);
   const [reviews, setReviews] = useState([]);
 
-  // Simula la carga de la lista de asistentes y reseñas desde Firebase u otra fuente
   useEffect(() => {
-    // Carga la lista de asistentes aquí
-    // Carga las reseñas aquí
+    // Carga la lista de quienes asistieron
+    // Carga las reseñas
   }, []);
 
   const handleAttendEvent = () => {
     // Implementa la lógica para permitir que el usuario asista al evento
-    // Esto podría implicar actualizar los datos en Firebase
   };
 
   return (
@@ -29,7 +27,7 @@ const EventDetailsScreen = ({ route, navigation }) => {
           marginVertical: 10,
         }}
       />
-      <Text>Descripción: {event.description}</Text>
+      <Text>Descripción de la salida: {event.description}</Text>
       <Text>Fecha: {event.date}</Text>
       <Text>Lugar: {event.location}</Text>
       <Button title="Asistir" onPress={handleAttendEvent} />
@@ -53,9 +51,9 @@ const EventDetailsScreen = ({ route, navigation }) => {
               marginVertical: 5,
             }}
           >
-            <Text>Usuario: {item.user}</Text>
-            <Text>Calificación: {item.rating}</Text>
-            <Text>Comentario: {item.comment}</Text>
+            <Text>Miembro: {item.user}</Text>
+            <Text>Calificación de la Salida: {item.rating}</Text>
+            <Text>Comentarios: {item.comment}</Text>
           </View>
         )}
         keyExtractor={(item) => item.id}

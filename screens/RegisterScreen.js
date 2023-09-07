@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, Alert } from "react-native";
-import firebase from "firebase"; // Asegúrate de importar Firebase
+import firebase from "firebase";
 
 const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -13,24 +13,20 @@ const RegisterScreen = ({ navigation }) => {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Registro exitoso, actualiza el nombre del usuario
         userCredential.user
           .updateProfile({
             displayName: name,
           })
           .then(() => {
-            // Actualización del nombre exitosa
             console.log("Nombre actualizado correctamente");
-            // Navega a la pantalla de inicio o a otra pantalla deseada
+
             navigation.navigate("Home");
           })
           .catch((error) => {
-            // Manejar errores al actualizar el nombre
             console.error("Error al actualizar el nombre", error);
           });
       })
       .catch((error) => {
-        // Manejar errores de registro
         Alert.alert(
           "Error",
           "Registro fallido. Verifica tus datos y contraseña."

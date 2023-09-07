@@ -22,7 +22,6 @@ class App extends Component {
           <Stack.Screen name="EventList" component={EventListScreen} />
           <Stack.Screen name="EventDetails" component={EventDetailsScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />{" "}
-          {/* Nueva pantalla de perfil */}
         </Stack.Navigator>
       </NavigationContainer>
     );

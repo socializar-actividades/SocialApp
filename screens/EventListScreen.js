@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
-// Datos de ejemplo para la lista de eventos
+//Datos de ejemplo para la lista de eventos
+//Publicar la informacion desde Contentful CMS si hay posibilidad
+
 const eventData = [
   {
     id: "1",
@@ -19,21 +21,19 @@ const eventData = [
     date: "2023-09-15",
     location: "Ubicación 2",
   },
-  // Agrega más datos de eventos aquí
+  // etc
 ];
 
 const EventListScreen = ({ navigation }) => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    // Puedes cargar los datos de eventos desde Firebase u otra fuente aquí
-    // Por ahora, usamos los datos de ejemplo eventData
     setEvents(eventData);
   }, []);
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      onPress={() => navigation.navigate("EventDetails", { event: item })} // Navega a la pantalla de detalles del evento
+      onPress={() => navigation.navigate("EventDetails", { event: item })}
       style={{ borderBottomWidth: 1, padding: 10 }}
     >
       <Text>{item.title}</Text>
