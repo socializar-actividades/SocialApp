@@ -32,6 +32,8 @@ En caso de cancelar, se recibe una notifiacion push.
 
 En este repositorio, en la branch structure, se brinda una idea de la estructura general de la App.
 
+Se aceptan propuestas de ideas, correcciones y mejoras.
+
 
 
 
