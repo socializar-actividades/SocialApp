@@ -5,7 +5,7 @@ import Carousel from "react-native-snap-carousel";
 //Idea aproximada del diseño del homepage
 
 const HomeScreen = ({ navigation }) => {
-  // Datos de salida
+  // Datos de salida por CMS
   const carouselData = [
     {
       title: "Salida 1",

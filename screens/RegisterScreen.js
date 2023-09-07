@@ -27,10 +27,7 @@ const RegisterScreen = ({ navigation }) => {
           });
       })
       .catch((error) => {
-        Alert.alert(
-          "Error",
-          "Registro fallido. Verifica tus datos y contraseña."
-        );
+        Alert.alert("Error", "Error. Verifica tus datos y contraseña.");
       });
   };
 
@@ -56,7 +53,7 @@ const RegisterScreen = ({ navigation }) => {
       <Button title="Registrarse" onPress={handleRegister} />
       <Button
         title="Volver a Iniciar Sesión"
-        onPress={() => navigation.navigate("Login")} // Navegar a la pantalla de inicio de sesión
+        onPress={() => navigation.navigate("Login")}
       />
     </View>
   );

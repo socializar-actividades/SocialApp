@@ -10,7 +10,7 @@ const ProfileScreen = () => {
       <Text>Perfil de Usuario</Text>
       <Text>Nombre: {user.displayName}</Text>
       <Text>Correo Electrónico: {user.email}</Text>
-      {/* Más campos de perfil */}
+      {/* Más campos de perfil a detallar*/}
       <Button
         title="Editar Perfil"
         onPress={() => {
