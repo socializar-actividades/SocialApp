@@ -30,7 +30,7 @@ Se actulizara el estado en el listado.
 
 En caso de cancelar, se recibe una notifiacion push.
 
-En este repositorio se brinda una idea de la estructura.
+En este repositorio, en la branch structure, se brinda una idea de la estructura general de la App.
 
 
 
