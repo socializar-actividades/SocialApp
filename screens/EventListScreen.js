@@ -56,4 +56,6 @@ const EventListScreen = ({ navigation }) => {
   );
 };
 
+//
+
 export default EventListScreen;
